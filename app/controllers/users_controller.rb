@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if params[:query].present?
-      @users = User.search(params[:query])
+      @users = User.search(params[:query], :page=>(params[:page] || 1), :per_page=>10 )
     else
-      @users = User.all
+      @users = User.all.page(params[:page]).per_page(10)
     end
   end
 

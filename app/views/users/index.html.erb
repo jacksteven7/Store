@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-
+<%= will_paginate @users , renderer: BootstrapPagination::Rails %>
 <%= form_tag users_path, method: :get do %>
   <p>
    <div class="col-sm-4">
